@@ -2,22 +2,21 @@
 
 namespace UnifyThird\Alipay;
 
-use AopCertClient;
 use UnifyThird\Strategy;
+
+require_once 'aop\AopCertClient.php';
 
 class AlipayCert extends Strategy
 {
+    protected function __construct()
+    {
+        echo "单例模式的AlipayCert被构造了" . PHP_EOL;
+        $aop = new \AopCertClient();
+        $this->AliPayConstruct($aop);
+    }
 
     public function __call($name, $arguments)
     {
-        $aop = new AopCertClient();
-        $aop->gatewayUrl = self::$init['gatewayUrl'];
-        $aop->appId = self::$init['appId'];
-        $aop->rsaPrivateKey = self::$init['rsaPrivateKey'];
-        $aop->alipayrsaPublicKey = self::$init['alipayrsaPublicKey'];
-        $aop->apiVersion = self::$init['apiVersion'];
-        $aop->signType = self::$init['signType'];
-        $aop->postCharset = self::$init['postCharset'];
-        $aop->format = self::$init['format'];
+        return $this->AliPayCall($name);
     }
 }
