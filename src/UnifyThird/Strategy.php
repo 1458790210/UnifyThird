@@ -15,7 +15,7 @@ abstract class Strategy
         return $this->add($arguments[0]);
     }
 
-    public function add($arr)
+    private function add($arr)
     {
         $r = $this->app;
         foreach ($arr as $k => $v) {
