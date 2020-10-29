@@ -17,15 +17,15 @@ abstract class Strategy
 
     private function add($arr)
     {
-        $r = $this->app;
+        $result = $this->app;
         foreach ($arr as $k => $v) {
             if ($v == end($arr)) {
-                $r = $r->$v(self::$args);
+                $result = $result->$v(self::$args);
             } else {
-                $r = $r->$v;
+                $result = $result->$v;
             }
         }
-        return $r;
+        return json_decode(json_encode($result), true);
     }
 
     protected function AliPayConstruct($aop)
