@@ -1,0 +1,25 @@
+{
+  "name": "wwd/unify-third",
+  "description": "对三方平台接口使用统一的调用方式, 方便扩展三方接口",
+  "type": "library",
+  "keywords": [
+    "easy-api",
+    "sdk"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ryan",
+      "email": "1458790210@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "overtrue/wechat": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "UnifyThird\\": "src/UnifyThird"
+    }
+  }
+}
