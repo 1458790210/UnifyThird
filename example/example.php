@@ -5,7 +5,7 @@ use UnifyThird\ThirdService;
 
 $config = require_once 'config.php';
 $t = ThirdService::$init = $config;
-$r = ThirdService::getInstance('Alipay_cert', ['alipay.open.app.qrcode.create'], "{" .
+$r = ThirdService::getInstance('Alipay_base', ['alipay.open.app.qrcode.create'], "{" .
                                                                                  "\"url_param\":\"page/component/component-pages/view/view\"," .
                                                                                  "\"query_param\":\"x=1\"," .
                                                                                  "\"describe\":\"二维码描述\"" .
