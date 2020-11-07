@@ -18,9 +18,10 @@ abstract class Strategy
     private function add($arr)
     {
         $result = $this->app;
+        $args = self::$args;
         foreach ($arr as $k => $v) {
             if ($v == end($arr)) {
-                $result = $result->$v(self::$args);
+                $result = $result->$v(...$args);
             } else {
                 $result = $result->$v;
             }
