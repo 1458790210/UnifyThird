@@ -7,5 +7,5 @@
 
 # 安装
 ~~~
-composer require wwd/unify-third dev-master
+composer require wwd/unify-third 
 ~~~
