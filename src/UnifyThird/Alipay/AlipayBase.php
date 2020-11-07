@@ -10,7 +10,6 @@ class AlipayBase extends Strategy
 {
     protected function __construct()
     {
-        echo "单例模式的AlipayBase被构造了" . PHP_EOL;
         $aop = new \AopClient();
         $this->AliPayConstruct($aop);
     }

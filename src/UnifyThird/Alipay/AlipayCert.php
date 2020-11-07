@@ -10,7 +10,6 @@ class AlipayCert extends Strategy
 {
     protected function __construct()
     {
-        echo "单例模式的AlipayCert被构造了" . PHP_EOL;
         $aop = new \AopCertClient();
         $this->AliPayConstruct($aop);
         //调用getPublicKey从支付宝公钥证书中提取公钥
