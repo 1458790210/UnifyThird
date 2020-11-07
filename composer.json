@@ -5,7 +5,8 @@
   "version":"1.0.1",
   "keywords": [
     "unify-third",
-    "sdk"
+    "wechat",
+    "alipay"
   ],
   "minimum-stability": "stable",
   "license": "MIT",
