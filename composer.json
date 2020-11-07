@@ -1,7 +1,7 @@
 {
   "name": "wwd/unify-third",
-  "description": "对三方平台接口使用统一的调用方式, 方便扩展三方接口",
   "type": "library",
+  "description": "对三方平台接口使用统一的调用方式, 方便扩展三方接口",
   "keywords": [
     "unify-third",
     "wechat",
