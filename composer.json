@@ -2,13 +2,11 @@
   "name": "wwd/unify-third",
   "description": "对三方平台接口使用统一的调用方式, 方便扩展三方接口",
   "type": "library",
-  "version":"1.0.1",
   "keywords": [
     "unify-third",
     "wechat",
     "alipay"
   ],
-  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
