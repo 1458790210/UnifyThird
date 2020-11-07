@@ -18,7 +18,7 @@ abstract class Strategy
     private function add($arr)
     {
         $result = $this->app;
-        $args = self::$args;
+        $args   = self::$args;
         foreach ($arr as $k => $v) {
             if ($v == end($arr)) {
                 $result = $result->$v(...$args);
@@ -31,24 +31,24 @@ abstract class Strategy
 
     protected function AliPayConstruct($aop)
     {
-        $aop->gatewayUrl = self::$init['gatewayUrl'];
-        $aop->appId = self::$init['appId'];
-        $aop->encryptKey = self::$init['encryptKey'];
-        $aop->rsaPrivateKey = self::$init['rsaPrivateKey'];
-        $aop->alipayPublicKey = self::$init['alipayPublicKey'];
-        $aop->debugInfo = self::$init['debugInfo'];
+        $aop->gatewayUrl         = self::$init['gatewayUrl'];
+        $aop->appId              = self::$init['appId'];
+        $aop->encryptKey         = self::$init['encryptKey'];
+        $aop->rsaPrivateKey      = self::$init['rsaPrivateKey'];
+        $aop->alipayPublicKey    = self::$init['alipayPublicKey'];
+        $aop->debugInfo          = self::$init['debugInfo'];
         $aop->alipayrsaPublicKey = self::$init['alipayrsaPublicKey'];
-        $aop->apiVersion = self::$init['apiVersion'];
-        $aop->signType = self::$init['signType'];
-        $aop->postCharset = self::$init['postCharset'];
-        $aop->format = self::$init['format'];
-        $this->app = $aop;
+        $aop->apiVersion         = self::$init['apiVersion'];
+        $aop->signType           = self::$init['signType'];
+        $aop->postCharset        = self::$init['postCharset'];
+        $aop->format             = self::$init['format'];
+        $this->app               = $aop;
     }
 
     protected function AliPayCall($name)
     {
         $method = '';
-        $arr = explode('.', $name);
+        $arr    = explode('.', $name);
         foreach ($arr as $value) {
             $method .= ucfirst($value);
         }
