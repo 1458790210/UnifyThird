@@ -11,4 +11,9 @@ class WechatWeb extends Strategy
     {
         $this->app = Factory::officialAccount(self::$init);
     }
+
+    public function __call($name, $arguments)
+    {
+        return $this->WechatCall($arguments[0]);
+    }
 }

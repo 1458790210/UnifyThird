@@ -10,4 +10,9 @@ class WechatPayment extends Strategy
     {
         $this->app = Factory::payment(self::$init);
     }
+
+    public function __call($name, $arguments)
+    {
+        return $this->WechatCall($arguments[0]);
+    }
 }

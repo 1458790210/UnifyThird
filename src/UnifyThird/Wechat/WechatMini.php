@@ -11,4 +11,9 @@ class WechatMini extends Strategy
     {
         $this->app = Factory::miniProgram(self::$init);
     }
+
+    public function __call($name, $arguments)
+    {
+        return $this->WechatCall($arguments[0]);
+    }
 }

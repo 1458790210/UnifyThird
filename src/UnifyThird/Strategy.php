@@ -11,12 +11,7 @@ abstract class Strategy
     public static $headers;
     public $app;
 
-    public function __call($name, $arguments)
-    {
-        return $this->add($arguments[0]);
-    }
-
-    private function add($arr)
+    protected function WechatCall($arr)
     {
         $result = $this->app;
         $args   = self::$args;
@@ -27,7 +22,10 @@ abstract class Strategy
                 $result = $result->$v;
             }
         }
-        return json_decode(json_encode($result), true);
+        if ($result['errcode'] ?? 0) {
+            return Response::error($result['errcode'], $result['errmsg']);
+        }
+        return Response::success($result);
     }
 
     protected function AliPayConstruct($aop)
@@ -57,8 +55,18 @@ abstract class Strategy
         $request = $method . 'Request';
         $request = new $request();
         $request->setBizContent(self::$args);
-        $result = $this->app->execute($request);
-        return json_decode(json_encode($result), true);
+        $result       = $this->app->execute($request);
+        $responseNode = str_replace(".", "_", $request->getApiMethodName()) . "_response";
+        $resultCode   = $result->$responseNode->code;
+        if (!empty($resultCode) && $resultCode == 10000) {
+            return Response::success($result->$responseNode);
+        }
+        return Response::error(
+            $resultCode,
+            $result->$responseNode->msg,
+            $result->$responseNode->sub_code,
+            $result->$responseNode->sub_msg
+        );
     }
 
     protected function BytedanceCall($name)
@@ -71,7 +79,21 @@ abstract class Strategy
         $request = 'Bytedance\Request\\' . $method;
         $request = new $request();
         $result  = $this->app->request($request, self::$args);
-        return json_decode(json_encode($result), true);
+        $result  = json_decode($result['body']);
+        if (($result['errcode'] ?? 0) || ($result['error_id'] ?? '') || ($result['err_no'] ?? '')) {
+            if ($result['error_id'] ?? '') {
+                $result['errcode'] = $result['code'];
+                $result['errmsg']  = $result['message'];
+                $result['error']   = $result['error_id'];
+                $result['message'] = $result['exception'];
+            }
+            if ($result['err_no'] ?? 0) {
+                $result['errcode'] = $result['err_no'];
+                $result['errmsg']  = $result['err_tips'];
+            }
+            return Response::error($result['errcode'], $result['errmsg'], $result['error'], $result['message']);
+        }
+        return Response::success($result['body']);
     }
 
 }
