@@ -8,6 +8,7 @@ abstract class Strategy
 
     public static $init;
     public static $args;
+    public static $headers;
     public $app;
 
     public function __call($name, $arguments)
@@ -52,11 +53,24 @@ abstract class Strategy
         foreach ($arr as $value) {
             $method .= ucfirst($value);
         }
-        require_once 'Alipay/aop/request/AlipayOpenAppQrcodeCreateRequest.php';
+        require_once $method . 'Request.php';
         $request = $method . 'Request';
         $request = new $request();
         $request->setBizContent(self::$args);
         $result = $this->app->execute($request);
+        return json_decode(json_encode($result), true);
+    }
+
+    protected function BytedanceCall($name)
+    {
+        $method = '';
+        $arr    = explode('.', $name);
+        foreach ($arr as $value) {
+            $method .= ucfirst($value);
+        }
+        $request = 'Bytedance\Request\\' . $method;
+        $request = new $request();
+        $result  = $this->app->request($request, self::$args);
         return json_decode(json_encode($result), true);
     }
 

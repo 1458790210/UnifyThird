@@ -5,7 +5,8 @@
   "keywords": [
     "unify-third",
     "wechat",
-    "alipay"
+    "alipay",
+    "bytedance"
   ],
   "license": "MIT",
   "authors": [
@@ -16,7 +17,11 @@
   ],
   "require": {
     "php": ">=7.0",
-    "overtrue/wechat": "~4.0"
+    "overtrue/wechat": "~4.0",
+    "ext-json": "*",
+    "wwd/bytedance": "v1.0.1",
+    "ext-openssl": "*",
+    "ext-curl": "*"
   },
   "autoload": {
     "psr-4": {

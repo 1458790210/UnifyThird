@@ -1,6 +1,6 @@
 <?php
 return [
-    'Wechat_mini' => [
+    'Wechat_mini'    => [
         'app_id'        => '',
         'secret'        => '',
         'response_type' => 'array',
@@ -9,7 +9,7 @@ return [
             'file'  => __DIR__ . '/wechat.log',
         ],
     ],
-    'Alipay_base' => [
+    'Alipay_base'    => [
         'gatewayUrl'         => 'https://openapi.alipay.com/gateway.do',
         'appId'              => '',
         'apiVersion'         => '1.0',
@@ -22,7 +22,7 @@ return [
         'rsaPrivateKey'      => '你的应用私钥',
         'alipayrsaPublicKey' => '你的支付宝公钥',
     ],
-    'Alipay_cert' => [
+    'Alipay_cert'    => [
         'gatewayUrl'         => 'https://openapi.alipay.com/gateway.do',
         'appId'              => '',
         'apiVersion'         => '1.0',
@@ -37,5 +37,10 @@ return [
         'appCertPath'        => "应用证书路径（要确保证书文件可读），例如：/home/admin/cert/appCertPublicKey.crt",
         'alipayCertPath'     => "支付宝公钥证书路径（要确保证书文件可读），例如：/home/admin/cert/alipayCertPublicKey_RSA2.crt",
         'rootCertPath'       => "支付宝根证书路径（要确保证书文件可读），例如：/home/admin/cert/alipayRootCert.crt",
+    ],
+    'Bytedance_mini' => [
+        'appid'      => '',
+        'secret'     => '',
+        'grant_type' => 'client_credential',
     ],
 ];

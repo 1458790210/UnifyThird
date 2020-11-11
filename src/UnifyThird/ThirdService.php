@@ -16,15 +16,16 @@ class ThirdService
         self::$init = $init;
     }
 
-    public static function getInstance($third, $method, $args = null)
+    public static function getInstance($third, $method, $args = null, $headers = [])
     {
         try {
-            Strategy::$init = self::$init[$third];
-            Strategy::$args = $args;
-            $third = explode('_', $third);
-            Factor::$args = $third[1] ?? '';
-            $factor = ("UnifyThird\\" . $third[0] . "\\" . $third[0] . 'Factor');
-            self::$third = $factor::getInstance();
+            Strategy::$init    = self::$init[$third];
+            Strategy::$args    = $args;
+            Strategy::$headers = $headers;
+            $third             = explode('_', $third);
+            Factor::$args      = $third[1] ?? '';
+            $factor            = ("UnifyThird\\" . $third[0] . "\\" . $third[0] . 'Factor');
+            self::$third       = $factor::getInstance();
 
             if (is_array($method)) {
                 $function = $method[0];

@@ -10,5 +10,8 @@ $t      = ThirdService::$init = $config;
 //                                                                                 "\"query_param\":\"x=1\"," .
 //                                                                                 "\"describe\":\"二维码描述\"" .
 //                                                                                 "  }");
-$r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['20201001', '20201001']);
+
+//$r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['20201001', '20201001']);
+
+$r = ThirdService::getInstance('Bytedance_mini', ['Antidirt'], ['tasks' => [['content' => '你好']], 'content' => '你好'], ['X-Token' => '']);
 var_dump($r);
