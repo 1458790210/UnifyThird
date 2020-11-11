@@ -53,7 +53,7 @@ abstract class Strategy
         foreach ($arr as $value) {
             $method .= ucfirst($value);
         }
-        require_once $method . 'Request.php';
+        require_once 'Alipay\aop\request\\' . $method . 'Request.php';
         $request = $method . 'Request';
         $request = new $request();
         $request->setBizContent(self::$args);
