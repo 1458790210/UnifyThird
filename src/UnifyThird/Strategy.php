@@ -79,7 +79,7 @@ abstract class Strategy
         $request = 'Bytedance\Request\\' . $method;
         $request = new $request();
         $result  = $this->app->request($request, self::$args);
-        $result  = json_decode($result['body']);
+        $result  = json_decode($result->body, true);
         if (($result['errcode'] ?? 0) || ($result['error_id'] ?? '') || ($result['err_no'] ?? '')) {
             if ($result['error_id'] ?? '') {
                 $result['errcode'] = $result['code'];
@@ -93,7 +93,6 @@ abstract class Strategy
             }
             return Response::error($result['errcode'], $result['errmsg'], $result['error'], $result['message']);
         }
-        return Response::success($result['body']);
+        return Response::success($result);
     }
-
 }
