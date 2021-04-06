@@ -16,6 +16,11 @@ class ThirdService
         self::$init = $init;
     }
 
+    public function getInit()
+    {
+        return self::$init;
+    }
+
     public static function getInstance($third, $method, $args = null, $headers = [])
     {
         try {
