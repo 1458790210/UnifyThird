@@ -14,9 +14,16 @@ $t      = ThirdService::$init = $config;
 //                                                                                 "\"describe\":\"二维码描述\"" .
 //                                                                                 "  }");
 
-//$r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['20201001', '20201001']);
+$r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['20201001', '20201001']);
 
-$r = ThirdService::getInstance('Bytedance_mini', ['GetAccessToken'], $config['Bytedance_mini']);
+//$r = ThirdService::getInstance('Wechat_payment',['order','queryByOutTradeNumber'],['20210404130157535751979810']);
+
+//$r = ThirdService::getInstance('Wechat_payment',['bill','get'],['20210403']);
+//$r->saveAs("D:\\", 'file-20210403.csv');
+
+//$r = ThirdService::getInstance('Wechat_openPlatform',['getAuthorizer'],['20210403']);
+
+//$r = ThirdService::getInstance('Bytedance_mini', ['GetAccessToken'], $config['Bytedance_mini']);
 
 //$r = ThirdService::getInstance('Bytedance_mini', ['Antidirt'], ['tasks' => [['content' => '你好']], 'content' => '你好'], ['X-Token' => '']);
 var_dump($r);

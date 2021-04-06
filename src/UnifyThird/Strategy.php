@@ -22,9 +22,13 @@ abstract class Strategy
                 $result = $result->$v;
             }
         }
-        if ($result['errcode'] ?? 0) {
-            return Response::error($result['errcode'], $result['errmsg']);
+
+        if (is_array($result)) {
+            if ($result['errcode'] ?? 0) {
+                return Response::error($result['errcode'], $result['errmsg']);
+            }
         }
+        
         return Response::success($result);
     }
 
