@@ -27,8 +27,11 @@ abstract class Strategy
             if ($result['errcode'] ?? 0) {
                 return Response::error($result['errcode'], $result['errmsg']);
             }
+            if ($result['err_code'] ?? 0) {
+                return Response::error($result['err_code'], $result['err_code_des']);
+            }
         }
-        
+
         return Response::success($result);
     }
 
