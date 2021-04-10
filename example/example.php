@@ -21,6 +21,15 @@ $r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['2
 //$r = ThirdService::getInstance('Wechat_payment',['bill','get'],['20210403']);
 //$r->saveAs("D:\\", 'file-20210403.csv');
 
+//$fun = function ($message, $fail) {
+//    // 你的逻辑
+//    return true;
+//    // 或者错误消息
+//    $fail('Order not exists.');
+//};
+//$tt = ThirdService::getInstance('Wechat_payment', ['handlePaidNotify'],
+//    [$fun]);
+
 //$r = ThirdService::getInstance('Wechat_openPlatform',['getAuthorizer'],['20210403']);
 
 //$r = ThirdService::getInstance('Bytedance_mini', ['GetAccessToken'], $config['Bytedance_mini']);
