@@ -10,6 +10,7 @@ class BytedanceMini extends Strategy
     protected function __construct()
     {
         $this->app = Client::instance();
+        $this->app->setConfig(self::$init);
         $this->app->setHeaders(self::$headers);
     }
 

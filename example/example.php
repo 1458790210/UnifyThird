@@ -32,7 +32,7 @@ $r = ThirdService::getInstance('Wechat_mini', ['data_cube', 'summaryTrend'], ['2
 
 //$r = ThirdService::getInstance('Wechat_openPlatform',['getAuthorizer'],['20210403']);
 
-//$r = ThirdService::getInstance('Bytedance_mini', ['GetAccessToken'], $config['Bytedance_mini']);
+//$r = ThirdService::getInstance('Bytedance_mini', ['GetAccessToken']);
 
 //$r = ThirdService::getInstance('Bytedance_mini', ['Antidirt'], ['tasks' => [['content' => '你好']], 'content' => '你好'], ['X-Token' => '']);
 var_dump($r);
